@@ -218,14 +218,33 @@ ______
 - Uma classe `Produto` com atributos `nome` e `preco`, e um método `calcularDesconto()` que aplica um desconto fixo de 10% no preço do produto.
 - Uma classe `Livro` que herda de `Produto` e modifica o método `calcularDesconto()`, aplicando um desconto de 20% no preço dos livros.
 
- **R:**
+Explique como funciona a herança nesse contexto e como você implementaria a modificação do método na classe `Livro`.
+
+ **R: A herança neste contexto está compreendida quando ao invês de criar novos atributos para cada classe podemos reutiliza-las a partir de uma classe mãe utilizando o termo "extends" construindo sua base a partir de outra base como o exemplo do código abaixo em Livro. Também temos a alteração em calcularDesconto para diferenciar em relação ao desconto utilizado no livro, alterando de 10% para 20%.**
 ```javascript
+//Criando a classe de produto.
 class Produto {
-    constructor (nome, preco){
+    constructor (nome, preco){// Identificando atributos na classe para possíveis calculos.
     this.nome = nome;
     this.preco = preco;
 }
     calcularDesconto () {
-        return this.preco - (this.preco * 0,10);
+        return this.preco - (this.preco * 0.10)// Calculo de desconto do produto de 10%.
     }
 }
+
+class Livro extends Produto {//Utilizando a base de código de Produto
+    constructor (nome, preco) {
+        super (nome, preco);
+    }
+
+    calcularDesconto () {
+        return this.preco - (this.preco * 0.20);//Alteramos o valor do desconto para 20%.
+    }
+}
+//Variaveis para impressão.
+let produto1 = new Produto ("Garrafa", 7);
+let livro1 = new Livro ("Veias abertas da América Látina", 89.90);
+
+console.log(`${produto1.nome}, está na promoção está saindo ${produto1.calcularDesconto()}!`);//Retorno esperado Garrafa e 6.3.
+console.log(`${livro1.nome}, está na promoção estando ${livro1.calcularDesconto()}!`);//Retorno esperado Veias abertas da América Látina e 71.92. 

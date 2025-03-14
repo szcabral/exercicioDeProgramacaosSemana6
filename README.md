@@ -221,6 +221,7 @@ ______
 Explique como funciona a herança nesse contexto e como você implementaria a modificação do método na classe `Livro`.
 
  **R: A herança neste contexto está compreendida quando ao invês de criar novos atributos para cada classe podemos reutiliza-las a partir de uma classe mãe utilizando o termo "extends" construindo sua base a partir de outra base como o exemplo do código abaixo em Livro. Também temos a alteração em calcularDesconto para diferenciar em relação ao desconto utilizado no livro, alterando de 10% para 20%.**
+
 ```javascript
 //Criando a classe de produto.
 class Produto {
@@ -246,5 +247,5 @@ class Livro extends Produto {//Utilizando a base de código de Produto
 let produto1 = new Produto ("Garrafa", 7);
 let livro1 = new Livro ("Veias abertas da América Látina", 89.90);
 
-console.log(`${produto1.nome}, está na promoção está saindo ${produto1.calcularDesconto()}!`);//Retorno esperado Garrafa e 6.3.
-console.log(`${livro1.nome}, está na promoção estando ${livro1.calcularDesconto()}!`);//Retorno esperado Veias abertas da América Látina e 71.92. 
+console.log(`${produto1.nome}, está na promoção está saindo R$ ${produto1.calcularDesconto()}!`);//Retorno esperado "Garrafa" e 6.3.
+console.log(`${livro1.nome}, está na promoção estando R$ ${livro1.calcularDesconto()}!`);//Retorno esperado "Veias abertas da América Látina" e 71.92. 

@@ -1,0 +1,2 @@
+# exercicioDeProgramacaosSemana6
+ 
